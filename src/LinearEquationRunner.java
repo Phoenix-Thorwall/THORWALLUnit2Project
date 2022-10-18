@@ -18,8 +18,8 @@ public class LinearEquationRunner
         LinearEquation LE = new LinearEquation(x1, x2, y1, y2);
 
         System.out.println("");
-        System.out.println("");
         System.out.println("The two points are: (" + x1 + ", " + y1 + ")" + "and (" + x2 + ", " + y2 + ")");
-
+        System.out.println("The equation of the line between these points is: ");
+        System.out.print("The slope of this line is " + LE.slope4Print());
     }
 }

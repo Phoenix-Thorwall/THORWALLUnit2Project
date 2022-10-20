@@ -51,9 +51,24 @@ public class LinearEquation
         return true4MattedM;
     }
 
-    public String yIntercept()
+    public String yIntercept4Equation()
     {
         return "";
+    }
+
+    public double yIntercept4Print()
+    {
+        double $y = y2 - y1;
+        double $x = x2 - x1;
+        double tpX = x1;
+        double tpY = y1;
+
+        while(tpX != 0)
+        {
+            tpY += $y;
+            tpX += $x;
+        }
+        return tpY;
     }
 
     public String equation()

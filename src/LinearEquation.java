@@ -53,29 +53,55 @@ public class LinearEquation
 
     public String yIntercept4Equation()
     {
-        return "";
+        double b;
+        double $y = y2 - y1;
+        double $x = x2 - x1;
+        double m = $y / $x;
+        b = y1 - (m * x1);
+        String bStr = "" + b;
+        return bStr;
     }
 
     public double yIntercept4Print()
     {
+        double b;
         double $y = y2 - y1;
         double $x = x2 - x1;
-        double tpX = x1;
-        double tpY = y1;
-
-        while(tpX != 0)
-        {
-            tpY += $y;
-            tpX += $x;
-        }
-        return tpY;
+        double m = $y / $x;
+        b = y1 - (m * x1);
+        return b;
     }
 
     public String equation()
     {
+        return "The equation of the line between these points is y = " + slope4Equation() + "x + " + yIntercept4Equation();
+    }
+
+    public String distance()
+    {
+        double $y = y2 - y1;
+        double $x = x2 - x1;
+        String c = formatter.format(Math.sqrt(Math.pow($x, 2) + Math.pow($y, 2)));
+        return c;
+    }
+
+    public String findY()
+    {
         return "";
     }
 
+    public String info()
+    {
+        String equationInfo =
+                "The two points are: (" + x1 + ", " + y1 + ")" + " and (" + x2 + ", " + y2 + ")\nThe equation of the line between these points is: "
+                + equation() + "\nThe slope of this line is " + slope4Print()
+                +"\nThe y-intercept of the line is " + yIntercept4Print()
+                +"\nThe distance between the two points is " + distance();
+        return equationInfo;
+    }
 
+    public String coordinateForX(double xValue)
+    {
 
+    }
 }

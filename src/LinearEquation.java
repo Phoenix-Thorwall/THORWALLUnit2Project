@@ -85,10 +85,6 @@ public class LinearEquation
         return c;
     }
 
-    public String findY()
-    {
-        return "";
-    }
 
     public String info()
     {
@@ -102,6 +98,9 @@ public class LinearEquation
 
     public String coordinateForX(double xValue)
     {
-
+        String yVal = "";
+        yVal += (yIntercept4Print() + (xValue * slope4Print()));
+        String formattedYVal = formatter.format(yVal);
+        return formattedYVal;
     }
 }

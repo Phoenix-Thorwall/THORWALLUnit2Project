@@ -21,8 +21,9 @@ public class LinearEquationRunner
         System.out.println(LE.info());
         System.out.print("Enter a value for x: ");
         String xVal = scan.nextLine();
+        double xValDouble = Double.parseDouble(xVal);
         System.out.println("");
-        System.out.print("The point on the line is (" + xVal + LE.coordinateForX(xVal) + ")");
+        System.out.print("The point on the line is (" + xVal + LE.coordinateForX(xValDouble) + ")");
 
 
     }

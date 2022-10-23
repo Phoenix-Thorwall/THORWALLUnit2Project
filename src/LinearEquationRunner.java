@@ -5,6 +5,8 @@ public class LinearEquationRunner
     {
         Scanner scan = new Scanner(System.in);
 
+        LinearEquation start = new LinearEquation(0, 0, 0, 0);
+        System.out.println(start.start());
         System.out.print("Enter coordinate 1: ");
         String coord1 = scan.nextLine();
         System.out.print("\nEnter coordinate 2: ");

@@ -26,24 +26,19 @@ public class LinearEquation
     {
         double $y = y2 - y1;
         double $x = x2 - x1;
-        String c = formatter.format(Math.sqrt(Math.pow($x, 2) + Math.pow($y, 2)));
-        double c2 = Double.parseDouble(c);
-        return c2;
-//        double c = roundedToHundredth(Math.sqrt(Math.pow($x, 2) + Math.pow($y, 2)));
-//        return c;
+        double c = roundedToHundredth(Math.sqrt(Math.pow($x, 2) + Math.pow($y, 2)));
+        return c;
     }
 
     /* Calculates and returns the y-intercept of the line between (x1, y1) and
    (x2, y2), rounded to the nearest hundredth */
     public double yIntercept()
     {
-        String b = "";
         double $y = y2 - y1;
         double $x = x2 - x1;
         double m = $y / $x;
-        b += formatter.format(y1 - (m * x1));
-        double b2 = Double.parseDouble(b);
-        return b2;
+        double b = roundedToHundredth(y1 - (m * x1));
+        return b;
     }
 
     /* Calculates and returns the slope of the line between (x1, y1) and
@@ -53,19 +48,18 @@ public class LinearEquation
         double $y = y2 - y1;
         double $x = x2 - x1;
         double m = $y / $x;
-        String formattedM = formatter.format(m);
-        double true4MattedM = Double.parseDouble(formattedM);
-        if (true4MattedM == -0.0)
+        m = roundedToHundredth(m);
+        if (m == -0.0)
         {
-            true4MattedM = 0.0;
+            m = 0.0;
         }
-        return true4MattedM;
+        return m;
     }
 
     /* Returns a String that represents the linear equation of the line through points
    (x1, y1) and (x2, y2) in slope-intercept (y = mx + b) form, e.g. "y = 3x + 1.5". */
-    //BEFORE I CREATE THE EQUATION I WILL CREATE 2 NEW METHODS TO DEAL WITH
-    //THE REQUIREMENTS FOR SLOPE AND Y-INTERCEPT
+    //BEFORE I CREATE THE EQUATION I WILL CREATE A METHOD TO MEET THE
+    //CRITERIA OF WHAT SHOULD BE PRINTED IN THE EQUATION
     public String slope4Equation()
     {
         int $y = y2 - y1;
@@ -96,28 +90,36 @@ public class LinearEquation
         return m;
     }
 
-    public String yIntercept4Equation()
-    {
-        double b;
-        double $y = y2 - y1;
-        double $x = x2 - x1;
-        double m = $y / $x;
-        b = y1 - (m * x1);
-        String bStr = "" + b;
-        return bStr;
-    }
+//    public String yIntercept4Equation()
+//    {
+//        double b;
+//        double $y = y2 - y1;
+//        double $x = x2 - x1;
+//        double m = $y / $x;
+//        b = y1 - (m * x1);
+//        String bStr = "" + roundedToHundredth(b);
+//        return bStr;
+//    }
 
     public String equation()
     {
         if (slope() == 0)
         {
-            return "The equation of the line between these points is y = " + slope4Equation() + "x + " + yIntercept4Equation();
+            return "The equation of the line between these points is y = " + yIntercept();
         }
         else if (yIntercept() == 0 && slope() == 1)
         {
             return "The equation of the line between these points is y = x";
         }
-        return "The equation of the line between these points is y = " + yIntercept4Equation();
+        else if (yIntercept() == 0)
+        {
+            return "The equation of the line between these points is y = " + slope4Equation() + "x";
+        }
+        else if (yIntercept() < 0)
+        {
+            return "The equation of the line between these points is y = " + slope4Equation() + "x - " + Math.abs(yIntercept());
+        }
+        return "The equation of the line between these points is y = " + slope4Equation() + "x + " + yIntercept();
     }
 
     /* Returns a String of the coordinate point on the line that has the given x value, with
@@ -127,11 +129,11 @@ public class LinearEquation
 //        String coord = "(" + xValue + ", ";
 //        coord += (yIntercept() + (xValue * slope())) + ")";
 //        String formattedYVal = formatter.format(yVal);
-        String xCoord = "" + xValue;
+        double xCoord = xValue;
         String formattedXCoord = formatter.format(xCoord);
-        String yCoord = "" + (yIntercept() + (xValue * slope()));
+        double yCoord = yIntercept() + (xValue * slope());
         String formattedYCoord = formatter.format(yCoord);
-        String Coord = "The point on the line is (" + formattedXCoord + ", " + formattedYCoord + ")";
+        String Coord = "The point on the line is (" + formattedXCoord + ".0, " + formattedYCoord + ")";
         return Coord;
     }
 
@@ -140,11 +142,10 @@ public class LinearEquation
      */
     public double roundedToHundredth(double toRound)
     {
-        String thing = "";
-        thing += toRound;
+        double thing = toRound;
         String formattedThing = formatter.format(thing);
-        double rounded = Double.parseDouble(formattedThing);
-        return rounded;
+        double thing2 = Double.parseDouble(formattedThing);
+        return thing2;
     }
 
     /* Returns a string that includes all information about the linear equation, each on
@@ -161,13 +162,17 @@ public class LinearEquation
   */
     public String lineInfo()
     {
-        return "The two points are: (" + x1 + ", " + y1 + ")" + "and (" + x2 + ", " + y2 + ")"
+        return "The two points are: (" + x1 + ", " + y1 + ")" + " and (" + x2 + ", " + y2 + ")"
                 + "\n" + equation()
                 + "\nThe slope of this line is: " + slope()
                 + "\nThe y-intercept of this line is: " + yIntercept()
                 + "\nThe distance between the two points is: " + distance();
     }
 
-
+    //Welcomes the User
+    public String start()
+    {
+        return "Welcome!";
+    }
 }
 

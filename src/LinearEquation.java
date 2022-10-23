@@ -124,10 +124,15 @@ public class LinearEquation
    both x and y coordinates as decimals to the nearest hundredth, e.g (-5.0, 6.75) */
     public String coordinateForX(double xValue)
     {
-        String yVal = "";
-        yVal += (yIntercept() + (xValue * slope()));
-        String formattedYVal = formatter.format(yVal);
-        return formattedYVal;
+//        String coord = "(" + xValue + ", ";
+//        coord += (yIntercept() + (xValue * slope())) + ")";
+//        String formattedYVal = formatter.format(yVal);
+        String xCoord = "" + xValue;
+        String formattedXCoord = formatter.format(xCoord);
+        String yCoord = "" + (yIntercept() + (xValue * slope()));
+        String formattedYCoord = formatter.format(yCoord);
+        String Coord = "The point on the line is (" + formattedXCoord + ", " + formattedYCoord + ")";
+        return Coord;
     }
 
     /* "Helper" method for use elsewhere in your methods; returns the value toRound rounded

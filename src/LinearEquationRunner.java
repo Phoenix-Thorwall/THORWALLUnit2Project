@@ -29,9 +29,7 @@ public class LinearEquationRunner
             String xVal = scan.nextLine();
             double xValDouble = Double.parseDouble(xVal);
             System.out.println("");
-            System.out.print("The point on the line is (" + xVal + ", "+ LE.coordinateForX(xValDouble) + ")");
-            System.out.print("The point on the line is (" + xVal + LE.coordinateForX(xValDouble) + ")");
-
+            System.out.print(LE.coordinateForX(xValDouble));
         }
         LinearEquation LE = new LinearEquation(x1, x2, y1, y2);
 

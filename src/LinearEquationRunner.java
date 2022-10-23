@@ -25,6 +25,6 @@ public class LinearEquationRunner
         System.out.println("");
         System.out.print("The point on the line is (" + xVal + LE.coordinateForX(xValDouble) + ")");
 
-
+        System.out.println("Why is inteliJ so stupid");
     }
 }
